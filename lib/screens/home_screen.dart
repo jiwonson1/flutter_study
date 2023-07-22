@@ -7,7 +7,7 @@ class HomeScreen extends StatelessWidget {
 
   final Future<List<WebtoonModel>> webtoons = ApiService.getTodaysToons();
 
-  @override 
+  @override
   Widget build(BuildContext context){
 
     return Scaffold(
@@ -64,7 +64,10 @@ class HomeScreen extends StatelessWidget {
                   )
                 ],
               ),
-              child: Image.network(webtoon.thumb),
+              child: Image.network(
+                  webtoon.thumb,
+                headers: const {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",},
+                  ),
             ),
             const SizedBox(
               height: 10,
